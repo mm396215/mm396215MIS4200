@@ -11,8 +11,8 @@ namespace mm396215MIS4200.Models
         public string description { get; set; }
         public DateTime startDate { get; set; }
         public ICollection<CourseDetail> CourseDetails { get; set; }
-        public int studentID { get; set; }
-        public virtual Student Student { get; set; }
+        public int professorID { get; set; }
+        public virtual Professor Professor { get; set; }
 
 
     }

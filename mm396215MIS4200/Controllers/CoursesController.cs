@@ -18,7 +18,7 @@ namespace mm396215MIS4200.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-            var courses = db.Courses.Include(c => c.Student);
+            var courses = db.Courses.Include(c => c.Professor);
             return View(courses.ToList());
         }
 
@@ -40,7 +40,7 @@ namespace mm396215MIS4200.Controllers
         // GET: Courses/Create
         public ActionResult Create()
         {
-            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName");
+            ViewBag.professorID = new SelectList(db.Professors, "professorID", "professorName");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace mm396215MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "courseID,description,startDate,studentID")] Course course)
+        public ActionResult Create([Bind(Include = "courseID,description,startDate,professorID")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace mm396215MIS4200.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", course.studentID);
+            ViewBag.professorID = new SelectList(db.Professors, "professorID", "professorName", course.professorID);
             return View(course);
         }
 
@@ -74,7 +74,7 @@ namespace mm396215MIS4200.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", course.studentID);
+            ViewBag.professorID = new SelectList(db.Professors, "professorID", "professorName", course.professorID);
             return View(course);
         }
 
@@ -83,7 +83,7 @@ namespace mm396215MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "courseID,description,startDate,studentID")] Course course)
+        public ActionResult Edit([Bind(Include = "courseID,description,startDate,professorID")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace mm396215MIS4200.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", course.studentID);
+            ViewBag.professorID = new SelectList(db.Professors, "professorID", "professorName", course.professorID);
             return View(course);
         }
 

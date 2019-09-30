@@ -12,6 +12,6 @@ namespace mm396215MIS4200.Models
         public string professorEmail { get; set; }
 
 
-        public ICollection<CourseDetail> CourseDetails { get; set; }
+        public ICollection<Course> Courses { get; set; }
     }
 }

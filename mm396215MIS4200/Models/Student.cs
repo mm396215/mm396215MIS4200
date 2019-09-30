@@ -12,7 +12,7 @@ namespace mm396215MIS4200.Models
         public string lastName { get; set; }
         public string email { get; set; }
 
-        public ICollection<Course> Course { get; set; }
+        public ICollection<CourseDetail> CourseDetail { get; set; }
 
 
     }

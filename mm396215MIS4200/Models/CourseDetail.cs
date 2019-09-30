@@ -15,8 +15,8 @@ namespace mm396215MIS4200.Models
         public int courseID { get; set; }
         public virtual Course Courses { get; set; }
 
-        public int professorID { get; set; }
-        public virtual Professor Professors { get; set; }
+        public int studentID { get; set; }
+        public virtual Student Student { get; set; }
 
     }
 }

@@ -18,7 +18,7 @@ namespace mm396215MIS4200.Controllers
         // GET: CourseDetails
         public ActionResult Index()
         {
-            var courseDetails = db.CourseDetails.Include(c => c.Courses).Include(c => c.Professors);
+            var courseDetails = db.CourseDetails.Include(c => c.Courses).Include(c => c.Student);
             return View(courseDetails.ToList());
         }
 
@@ -41,7 +41,7 @@ namespace mm396215MIS4200.Controllers
         public ActionResult Create()
         {
             ViewBag.courseID = new SelectList(db.Courses, "courseID", "description");
-            ViewBag.professorID = new SelectList(db.Professors, "professorID", "professorName");
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName");
             return View();
         }
 
@@ -50,7 +50,7 @@ namespace mm396215MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "coursedetailID,courseDescription,textbookPrice,courseID,professorID")] CourseDetail courseDetail)
+        public ActionResult Create([Bind(Include = "coursedetailID,courseDescription,textbookPrice,courseID,studentID")] CourseDetail courseDetail)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace mm396215MIS4200.Controllers
             }
 
             ViewBag.courseID = new SelectList(db.Courses, "courseID", "description", courseDetail.courseID);
-            ViewBag.professorID = new SelectList(db.Professors, "professorID", "professorName", courseDetail.professorID);
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", courseDetail.studentID);
             return View(courseDetail);
         }
 
@@ -77,7 +77,7 @@ namespace mm396215MIS4200.Controllers
                 return HttpNotFound();
             }
             ViewBag.courseID = new SelectList(db.Courses, "courseID", "description", courseDetail.courseID);
-            ViewBag.professorID = new SelectList(db.Professors, "professorID", "professorName", courseDetail.professorID);
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", courseDetail.studentID);
             return View(courseDetail);
         }
 
@@ -86,7 +86,7 @@ namespace mm396215MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "coursedetailID,courseDescription,textbookPrice,courseID,professorID")] CourseDetail courseDetail)
+        public ActionResult Edit([Bind(Include = "coursedetailID,courseDescription,textbookPrice,courseID,studentID")] CourseDetail courseDetail)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace mm396215MIS4200.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.courseID = new SelectList(db.Courses, "courseID", "description", courseDetail.courseID);
-            ViewBag.professorID = new SelectList(db.Professors, "professorID", "professorName", courseDetail.professorID);
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", courseDetail.studentID);
             return View(courseDetail);
         }
 
