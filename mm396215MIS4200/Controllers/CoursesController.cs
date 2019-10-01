@@ -18,8 +18,11 @@ namespace mm396215MIS4200.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-            var courses = db.Courses.Include(c => c.Professor);
-            return View(courses.ToList());
+            //    var courses = db.Courses.Include(c => c.Professor);
+            //    var courseList = courses.ToList();
+            var courses = db.Courses;
+            
+            return View(db.Courses.ToList());
         }
 
         // GET: Courses/Details/5

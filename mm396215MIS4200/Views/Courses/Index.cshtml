@@ -12,7 +12,8 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Professor.professorName)
+            @*@Html.DisplayNameFor(model => model.Professor.professorName)*@
+            @Html.DisplayNameFor(model => model.professorID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.description)
@@ -26,7 +27,8 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Professor.professorName)
+            @*@Html.DisplayFor(modelItem => item.Professor.professorName)*@
+            @Html.DisplayFor(modelItem => item.professorID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.description)
