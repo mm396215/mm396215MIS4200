@@ -47,7 +47,7 @@ namespace mm396215MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "studentID,fullName,email")] Student student)
+        public ActionResult Create([Bind(Include = "studentID,firstName,lastName,email")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -56,7 +56,6 @@ namespace mm396215MIS4200.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID = new SelectList(db.Students, "ID", "fullName");
             return View(student);
         }
 
@@ -80,7 +79,7 @@ namespace mm396215MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "studentID,fullName,email")] Student student)
+        public ActionResult Edit([Bind(Include = "studentID,firstName,lastName,email")] Student student)
         {
             if (ModelState.IsValid)
             {
