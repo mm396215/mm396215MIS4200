@@ -41,7 +41,7 @@ namespace mm396215MIS4200.Controllers
         public ActionResult Create()
         {
             ViewBag.courseID = new SelectList(db.Courses, "courseID", "description");
-            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName");
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "fullName");
             return View();
         }
 
@@ -60,7 +60,7 @@ namespace mm396215MIS4200.Controllers
             }
 
             ViewBag.courseID = new SelectList(db.Courses, "courseID", "description", courseDetail.courseID);
-            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", courseDetail.studentID);
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "fullName", courseDetail.studentID);
             return View(courseDetail);
         }
 
@@ -77,7 +77,7 @@ namespace mm396215MIS4200.Controllers
                 return HttpNotFound();
             }
             ViewBag.courseID = new SelectList(db.Courses, "courseID", "description", courseDetail.courseID);
-            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", courseDetail.studentID);
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "fullName", courseDetail.studentID);
             return View(courseDetail);
         }
 
@@ -95,7 +95,7 @@ namespace mm396215MIS4200.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.courseID = new SelectList(db.Courses, "courseID", "description", courseDetail.courseID);
-            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", courseDetail.studentID);
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "fullName", courseDetail.studentID);
             return View(courseDetail);
         }
 

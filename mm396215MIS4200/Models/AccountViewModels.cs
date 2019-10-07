@@ -5,8 +5,11 @@ namespace mm396215MIS4200.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
-        [Required]
+        
         [Display(Name = "Email")]
+        [Required]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
+
         public string Email { get; set; }
     }
 

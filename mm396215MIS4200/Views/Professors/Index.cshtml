@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<mm396215MIS4200.Models.Professor>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Professor Details";
 }
 
-<h2>Index</h2>
+<h2 style="color:rgb(255, 94, 159);">Professor Details</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered + table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.professorName)
@@ -20,20 +20,29 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.professorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.professorEmail)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.professorID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.professorID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.professorID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.professorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.professorEmail)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.professorID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.professorID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.professorID })
+            </td>
+        </tr>
+    }
 
 </table>
+<p>
+    <button type="button" class="btn btn-warning">Warning: Pressing "Delete" will permanetly remove records</button>
+
+
+</p>
+
+
+

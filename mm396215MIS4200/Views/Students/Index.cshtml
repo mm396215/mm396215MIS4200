@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<mm396215MIS4200.Models.Student>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Student Information";
 }
 
-<h2>Index</h2>
+<h2 style="color:rgb(255, 94, 159);">Student Information</h2>
 
 <p>
+
     @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+    </p>
+<table class="table table-bordered + table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.firstName)
@@ -23,23 +24,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.firstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.studentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.studentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.studentID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.studentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.studentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.studentID })
+            </td>
+
+        </tr>
+    }
 
 </table>
+<p>
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> 
+    </div>
+    <button type="button" class="btn btn-warning">Warning: Pressing "Delete" will permanetly remove records</button>
+</p>
