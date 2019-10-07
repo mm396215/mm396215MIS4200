@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace mm396215MIS4200.Models
@@ -10,9 +11,11 @@ namespace mm396215MIS4200.Models
     {
         public int professorID { get; set; }
 
-       
+        [Display(Name = "Professor")]
+        [Required]
         public string professorName { get; set; }
-      
+        [Display(Name = "Professor's Email")]
+        [Required]
         public string professorEmail { get; set; }
 
 
