@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    <style>
+    @*<style>*
         ul {
             list-style-type: none;
             margin: 0;
@@ -28,9 +28,7 @@
                 text-decoration: none;
             }
 
-                li a:hover, .dropdown:hover .dropbtn {
-                    background-color: red;
-                }
+             
 
             li.dropdown {
                 display: inline-block;
@@ -60,7 +58,7 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
-    </style>
+    </style> *@
 
 </head>
 <body>
@@ -77,15 +75,29 @@
 
             </div>
             <div class="navbar-collapse collapse">
+                
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
-                    <li> @Html.ActionLink("Courses", "Index", "Courses")</li>
-                    <li> @Html.ActionLink("Students", "Index", "Students")</li>
-                    <li>@Html.ActionLink("Professors", "Index", "Professors")</li>
-                    <li> @Html.ActionLink("CourseDetails", "Index", "CourseDetails")</li>                
+                    <span class="dropdown">
+                        <a href="#" class="btn btn-danger dropdown-toggle" style="margin top:10px" data-toggle="dropdown" >SD2 Models<span class = "caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                            <li> @Html.ActionLink("Courses", "Index", "Courses")</li>
+                            <li>
+                                @Html.ActionLink("Students", "Index", "Students")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Professors", "Index", "Professors")
+                            </li>
+                            <li> @Html.ActionLink("CourseDetails", "Index", "CourseDetails")</li>
+                        </ul>
+                    </span>
+</div>
+                   
+                   
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

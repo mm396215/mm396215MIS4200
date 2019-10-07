@@ -10,7 +10,7 @@ namespace mm396215MIS4200.Models
     {
         public int courseID { get; set; }
 
-      
+      [Display (Name="Course Level")]
         public string description { get; set; }
 
     
