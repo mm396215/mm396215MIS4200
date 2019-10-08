@@ -74,15 +74,13 @@
                 @Html.ActionLink("MIS 4200", "Index", "MIS 4200", new { area = "" }, new { @class = "navbar-brand" })
 
             </div>
-            <div class="navbar-collapse collapse">
-                
+            <div class="navbar-collapse collapse">       
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-
                     <span class="dropdown">
-                        <a href="#" class="btn btn-danger dropdown-toggle" style="margin top:10px" data-toggle="dropdown" >SD2 Models<span class = "caret"></span></a>
+                        <a href="#" class="btn btn-danger dropdown-toggle" style="margin: top:5px" data-toggle="dropdown" >SD2 Models<span class = "caret"></span></a>
                         <ul class="dropdown-menu">
 
                             <li> @Html.ActionLink("Courses", "Index", "Courses")</li>
@@ -94,8 +92,7 @@
                             </li>
                             <li> @Html.ActionLink("CourseDetails", "Index", "CourseDetails")</li>
                         </ul>
-                    </span>
-                                     
+                    </span>                                     
                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
